@@ -28,7 +28,7 @@ case `uname` in
 	exit -1
 esac
 
-GITREPO=${GITREPO:-"git://github.com/mozilla-b2g/b2g-manifest"}
+GITREPO=${GITREPO:-"git://github.com/cuteprince/b2g-manifest"}
 BRANCH=${BRANCH:-v1-train}
 
 GIT_TEMP_REPO="tmp_manifest_repo"
@@ -61,6 +61,11 @@ case "$1" in
 
 "optimus-l5")
 	echo DEVICE=m4 >> .tmp-config &&
+	repo_sync $1
+	;;
+
+"pico")
+	echo DEVICE=pico >> .tmp-config &&
 	repo_sync $1
 	;;
 
